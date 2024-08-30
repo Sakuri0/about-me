@@ -1,0 +1,371 @@
+@charset "UTF-8";
+
+/* 全体のリセットとフォント設定 */
+html { font-size: 100%; }
+body {
+    font-family: 'Noto Serif JP', serif;
+    line-height: 1.8;
+    color: #3a2a1c;
+    background-color: #f8f4e8;
+    margin: 0;
+    padding: 0;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+a { text-decoration: none; }
+img { max-width: 100%; }
+
+/* コンテナ */
+.wrapper {
+    max-width: 1120px;
+    margin: auto;
+    padding: 0 1.5rem;
+}
+
+/* 見出しスタイル */
+h3 {
+    font-size: 2rem;
+    text-align: center;
+    margin-bottom: 1rem;
+    color: #3a2a1c;
+}
+
+/* ヘッダーセクション */
+.page-header {
+    background: linear-gradient(135deg, #1e4867 0%, #14344a 100%);
+    padding: 1rem 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    box-sizing: border-box;
+    position: relative;
+}
+.page-header h1 {
+    margin: 0;
+    text-align: center;
+    width: 100%;
+}
+.page-header h1 img {
+    max-width: 200px;
+    height: auto;
+}
+.page-header.fixed {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background: linear-gradient(135deg, #1e4867 0%, #14344a 100%);
+    box-shadow: none;
+    z-index: 1000;
+    transition: none;
+}
+
+/* ナビゲーションバー */
+.header-nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 2rem;
+    background: #1e4867;
+    color: #fff;
+    flex-wrap: wrap;
+}
+.header-nav .search-bar input {
+    width: 100%;
+    padding: 0.5rem;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+}
+.header-nav .icons {
+    display: flex;
+    gap: 1rem;
+}
+.header-nav .icons i {
+    font-size: 1.5rem;
+    cursor: pointer;
+}
+
+/* ナビゲーション */
+.main-nav {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    font-size: 1.2rem;
+    flex-wrap: wrap;
+    margin-top: 1rem;
+}
+.nav-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+}
+.nav-list a {
+    padding: 0.5rem 1rem;
+    color: #fff;
+    background-color: #1e4867;
+    border-radius: 5px;
+    transition: background-color 0.3s, color 0.3s;
+}
+.nav-list a:hover {
+    background-color: #14344a;
+}
+
+/* タイトルと見出し */
+.page-title, .heading-large {
+    text-align: center;
+    margin: 2rem 0;
+    font-size: 3rem;
+}
+
+/* ボタン */
+.btn-primary, .btn-secondary {
+    display: inline-block;
+    font-size: 1.5rem;
+    border-radius: 10px;
+    padding: 12px 24px;
+    text-align: center;
+    font-weight: bold;
+    position: relative;
+    overflow: hidden;
+    transition: background-color 0.3s;
+}
+.btn-primary {
+    background: linear-gradient(135deg, #1e4867 0%, #14344a 100%);
+    color: #fff;
+}
+.btn-primary:hover {
+    background: linear-gradient(135deg, #14344a 0%, #1e4867 100%);
+}
+.btn-secondary {
+    background: linear-gradient(135deg, #956c44 0%, #704c2e 100%);
+    color: #fff;
+}
+.btn-secondary:hover {
+    background: linear-gradient(135deg, #704c2e 0%, #956c44 100%);
+}
+.btn-primary::before, .btn-secondary::before {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 300%;
+    height: 300%;
+    background: rgba(255, 255, 255, 0.2);
+    transition: all 0.4s;
+    transform: translate(-50%, -50%) scale(0);
+}
+.btn-primary:hover::before, .btn-secondary:hover::before {
+    transform: translate(-50%, -50%) scale(1);
+}
+
+/* ヒーローセクション */
+.hero-content {
+    background-color: rgba(60, 50, 39, 0.7);
+    padding: 100px 0;
+    color: #fff;
+    text-align: center;
+}
+.hero-content h2.page-title {
+    font-size: 4rem;
+    margin-bottom: 1rem;
+}
+.hero-content p {
+    font-size: 1.5rem;
+    margin-bottom: 2rem;
+}
+.hero-content .btn-primary {
+    padding: 15px 30px;
+}
+
+/* セクションスタイル */
+.about, .contact, .map-container, .facebook-container {
+    background-color: #fff;
+    border: 1px solid #e0dfdc;
+    padding: 2rem;
+    margin: 4rem auto;
+    max-width: 960px;
+    text-align: center;
+}
+.contact h2, .about h2 {
+    font-size: 2.5rem;
+    margin-bottom: 2rem;
+}
+.contact label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-size: 1.2rem;
+}
+.contact input, .contact textarea {
+    width: 100%;
+    padding: 0.5rem;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    margin-bottom: 1rem;
+}
+.contact button {
+    display: inline-block;
+    font-size: 1.5rem;
+    border-radius: 10px;
+    padding: 12px 24px;
+    background: linear-gradient(135deg, #1e4867 0%, #14344a 100%);
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+.contact button:hover {
+    background: linear-gradient(135deg, #14344a 0%, #1e4867 100%);
+}
+
+/* 商品セクション */
+.product-detail-page .product-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2rem;
+    padding: 2rem 0;
+}
+.product-detail-page .product-card {
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    padding: 1rem;
+    text-align: center;
+    flex: 1 1 calc(50% - 2rem);
+    box-sizing: border-box;
+    margin-bottom: 2rem;
+}
+
+/* 人気商品・状況別商品・季節別商品セクション */
+.popular-products, .situation-products, .seasonal-products {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2rem;
+    padding: 2rem 0;
+}
+.product-card, .seasonal-product-item {
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    padding: 1rem;
+    text-align: center;
+    flex: 1 1 calc(33.333% - 2rem);
+    box-sizing: border-box;
+    margin-bottom: 2rem;
+}
+.product-card img, .seasonal-product-item img {
+    max-width: 100%;
+    height: auto;
+    border-bottom: 1px solid #ddd;
+    margin-bottom: 10px;
+}
+.product-card h3, .product-card h4, .seasonal-product-item h3 {
+    font-size: 1.5rem;
+    margin-bottom: 0.5rem;
+}
+.product-card p, .seasonal-product-item p {
+    font-size: 1rem;
+    color: #666;
+}
+
+/* フッター */
+.page-footer {
+    background-color: #1e4867;
+    color: #fff;
+    padding: 2rem 0;
+    text-align: center;
+    margin-top: auto;
+}
+.page-footer p {
+    margin: 0;
+}
+.page-footer .footer-nav {
+    display: flex;
+    justify-content: center;
+    margin-top: 1rem;
+}
+.page-footer .footer-nav a {
+    color: #fff;
+    margin: 0 1rem;
+}
+.page-footer .footer-nav a:hover { 
+    text-decoration: underline; 
+}
+.page-footer::before {
+    content: "マルエム商会";
+    display: block;
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+}
+
+/* メディアクエリ - タブレット（最大768px） */
+@media (max-width: 768px) {
+    .header-nav { flex-direction: column; }
+    .header-nav .search-bar input { width: 100%; }
+    .main-nav { flex-direction: column; gap: 0.5rem; }
+    .page-header h1 img { max-width: 150px; }
+    .product-card, .seasonal-product-item { flex: 1 1 calc(50% - 2rem); }
+    .situation-products .product-list, .seasonal-product-list { flex-direction: column; align-items: center; }
+    .contact input, .contact textarea { font-size: 1rem; }
+}
+
+/* メディアクエリ - スマートフォン（最大480px） */
+@media (max-width: 480px) {
+    .hero-content h2.page-title {
+        font-size: 2rem;
+    }
+    .hero-content p {
+        font-size: 1rem;
+    }
+    .hero-content .btn-primary {
+        padding: 10px 20px;
+    }
+    .header-nav {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 0.5rem;
+    }
+    .header-nav .btn-primary, .header-nav .btn-secondary {
+        font-size: 1rem;
+        padding: 10px 15px;
+        flex: 1 1 calc(50% - 1rem);
+        max-width: calc(50% - 1rem);
+        white-space: nowrap;
+    }
+    .store-info {
+        padding: 1rem;
+        margin: 2rem auto;
+        font-size: 1rem;
+    }
+    .store-info h2 {
+        font-size: 1.8rem;
+    }
+    .store-info .address, .store-info .contact-info {
+        font-size: 1rem;
+    }
+    .store-info .contact-info a {
+        font-size: 1rem;
+        padding: 8px 16px;
+    }
+    .store-info .facebook-container a {
+        font-size: 1rem;
+        padding: 8px 16px;
+        border: 1px solid #1e4867;
+    }
+    .product-detail-page .product-list {
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+    }
+    .product-detail-page .product-card {
+        flex: 1 1 100%;
+        max-width: 100%;
+    }
+}
