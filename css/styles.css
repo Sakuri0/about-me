@@ -62,6 +62,26 @@ h3 {
     transition: none;
 }
 
+/* ヘッダー内のボタン */
+.header-nav {
+    display: flex;
+    flex-wrap: wrap; /* ボタンが1行に収まらない場合に折り返し */
+    justify-content: center;
+    gap: 1rem;
+}
+.header-nav .btn-primary, .header-nav .btn-secondary {
+    white-space: nowrap; /* テキストの改行を防ぐ */
+    font-size: 1.5rem;
+    border-radius: 10px;
+    padding: 12px 24px;
+    text-align: center;
+    font-weight: bold;
+    position: relative;
+    overflow: hidden;
+    transition: background-color 0.3s;
+    margin: 0.5rem; /* ボタン間の隙間を追加 */
+}
+
 /* ナビゲーションバー */
 .header-nav {
     display: flex;
@@ -313,18 +333,124 @@ h3 {
     .product-card, .seasonal-product-item { flex: 1 1 calc(50% - 2rem); }
     .situation-products .product-list, .seasonal-product-list { flex-direction: column; align-items: center; }
     .contact input, .contact textarea { font-size: 1rem; }
+    .popular-products {
+        padding: 2rem 1rem; /* 左右の余白を調整 */
+    }
 }
 
 /* メディアクエリ - スマートフォン（最大480px） */
 @media (max-width: 480px) {
+    /* ヘッダーのロゴとナビゲーション */
+    .page-header {
+        padding: 1rem;
+    }
+    .logo img {
+        max-width: 100%;
+        height: auto;
+    }
+    .main-nav {
+        text-align: center;
+    }
+    .main-nav .nav-list {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding: 0;
+        margin: 0;
+    }
+    .main-nav .nav-list li {
+        margin: 0.5rem 0;
+    }
+    .main-nav .nav-list a {
+        font-size: 1rem;
+    }
+
+    /* キャッチコピー */
+    .cover {
+        padding: 2rem 1rem;
+    }
+    .cover .hero-content h2 {
+        font-size: 1.5rem;
+    }
+    .cover .hero-content p {
+        font-size: 0.9rem;
+    }
+
+    /* メインコンテンツ */
+    .map-and-facebook {
+        flex-direction: column;
+        align-items: center;
+    }
+    .map-container, .facebook-container {
+        width: 100%;
+        text-align: center;
+        margin-bottom: 1rem;
+    }
+    .map-container iframe {
+        width: 100%;
+        height: 200px;
+    }
+    .facebook-container iframe {
+        width: 100%;
+        height: 200px;
+    }
+
+    /* フッター */
+    .footer-links {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 1rem;
+        justify-content: center;
+    }
+    
+    .footer-links .footer-link {
+        flex: 1 1 calc(50% - 1rem); /* 上段2ボタン */
+        max-width: calc(50% - 1rem);
+        text-align: center;
+    }
+
+    .footer-links .footer-link:nth-child(n+3) {
+        flex: 1 1 calc(33.33% - 1rem); /* 下段3ボタン */
+        max-width: calc(33.33% - 1rem);
+    }
+    
+    .footer-links .footer-link a {
+        display: block;
+        padding: 0.5rem;
+        font-size: 0.9rem;
+    }
+    .store-info-wrapper, .footer-bottom {
+        font-size: 0.8rem;
+        text-align: center;
+    }
+
+    /* 商品詳細ページ */
+    .product-detail-page .product-list {
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+    }
+    .product-detail-page .product-card {
+        flex: 1 1 100%;
+        max-width: 100%;
+    }
+    .popular-products {
+        padding: 2rem 0.5rem; /* 左右の余白を調整 */
+    }
+    .product-card {
+        flex: 1 1 calc(100% - 2rem); /* 余白の調整 */
+    }
+
+    /* その他 */
     .hero-content h2.page-title {
         font-size: 2rem;
     }
     .hero-content p {
         font-size: 1rem;
     }
-    .hero-content .btn-primary {
+    .hero-content .btn-primary, .header-nav .btn-primary, .header-nav .btn-secondary {
         padding: 10px 20px;
+        font-size: 1rem;
     }
     .header-nav {
         display: flex;
@@ -333,8 +459,6 @@ h3 {
         gap: 0.5rem;
     }
     .header-nav .btn-primary, .header-nav .btn-secondary {
-        font-size: 1rem;
-        padding: 10px 15px;
         flex: 1 1 calc(50% - 1rem);
         max-width: calc(50% - 1rem);
         white-space: nowrap;
@@ -350,22 +474,10 @@ h3 {
     .store-info .address, .store-info .contact-info {
         font-size: 1rem;
     }
-    .store-info .contact-info a {
-        font-size: 1rem;
-        padding: 8px 16px;
-    }
-    .store-info .facebook-container a {
+    .store-info .contact-info a, .store-info .facebook-container a {
         font-size: 1rem;
         padding: 8px 16px;
         border: 1px solid #1e4867;
     }
-    .product-detail-page .product-list {
-        display: flex;
-        flex-direction: column;
-        gap: 1rem;
-    }
-    .product-detail-page .product-card {
-        flex: 1 1 100%;
-        max-width: 100%;
-    }
 }
+
